@@ -21,5 +21,4 @@ class RestDemo {
         return "Invocacion de servicio externo "+ myVariable;
     }
 
-    private 
 }

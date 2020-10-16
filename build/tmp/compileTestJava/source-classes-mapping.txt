@@ -1,0 +1,2 @@
+com/me/angelorum/demo/DemoConfigmapApplicationTests.java
+ com.me.angelorum.demo.DemoConfigmapApplicationTests
