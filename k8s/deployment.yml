@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-ws
+  labels:
+    app: demo-configmap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-ws
+  template:
+    metadata:
+      labels:
+        app: demo-ws
+    spec:
+      containers:
+      - name: demo-ws
+        image: angelorum/demo-configmap:0.0.1
+        ports:
+        - containerPort: 8080
+        env:
+          - name: BAR
+            valueFrom:
+              configMapKeyRef:
+                name: demo
+                key: bar
