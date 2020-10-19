@@ -19,9 +19,13 @@ spec:
         image: angelorum/demo-configmap:0.0.1
         ports:
         - containerPort: 8080
-        env:
-          - name: BAR
-            valueFrom:
-              configMapKeyRef:
-                name: demo
-                key: bar
+        volumeMounts:
+        - name: application-config 
+          mountPath: "/config"
+      volumes:
+        - name: application-config
+          configMap:
+            name: spring-app-config 
+            items:
+            - key: application.properties 
+              path: application.properties
